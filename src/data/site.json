@@ -1,0 +1,52 @@
+{
+  "title": "Pondok Pesantren Al-Musthafawiyah",
+  "shortName": "Al-Musthafawiyah",
+  "tagline": "Membentuk Generasi Qur'ani yang Berilmu, Berakhlak Mulia, dan Berdaya Saing Global",
+  "description": "Pondok Pesantren Al-Musthafawiyah adalah lembaga pendidikan Islam terpadu yang mengintegrasikan ilmu pengetahuan umum dengan nilai-nilai Al-Qur'an dan Sunnah, dengan program unggulan Tahfidz Al-Qur'an 30 Juz, Kitab Kuning, dan penguasaan Bahasa Arab & Inggris.",
+  "keywords": "pondok pesantren, pesantren, al-musthafawiyah, tahfidz quran, kitab kuning, madrasah tsanawiyah, madrasah aliyah, ppdb pesantren, sekolah islam, pesantren modern",
+  "ogImage": "/images/og-default.jpg",
+  "email": "info@almusthafawiyah.sch.id",
+  "phone": "0812-3456-7890",
+  "whatsapp": "6281234567890",
+  "address": "Jl. Raya Pesantren No. 1, Desa Karanganyar, Kec. Kebumen, Kab. Kebumen, Jawa Tengah 54317",
+  "locale": "id_ID",
+  "social": {
+    "facebook": "https://www.facebook.com/almusthafawiyah",
+    "instagram": "https://www.instagram.com/almusthafawiyah",
+    "youtube": "https://www.youtube.com/@almusthafawiyah",
+    "tiktok": "https://www.tiktok.com/@almusthafawiyah"
+  },
+  "ai": {
+    "endpoint": "",
+    "model": "gpt-4o-mini",
+    "botName": "Asisten AI Al-Musthafawiyah"
+  },
+  "stats": [
+    { "label": "Santri Aktif", "value": 3500, "suffix": "+", "icon": "🕌" },
+    { "label": "Asatidz & Guru", "value": 150, "suffix": "+", "icon": "📖" },
+    { "label": "Alumni", "value": 15000, "suffix": "+", "icon": "🎓" },
+    { "label": "Tahun Berdiri", "value": 25, "suffix": "+", "icon": "🏛️" }
+  ],
+  "faq": [
+    {
+      "q": "Apa itu Pondok Pesantren Al-Musthafawiyah?",
+      "a": "Al-Musthafawiyah adalah lembaga pendidikan Islam terpadu yang memadukan pendidikan formal (MTs, MA, SMPIT, SMAIT, SMKIT) dengan pendidikan kepesantrenan, meliputi Tahfidz Al-Qur'an, kajian kitab kuning, dan penguasaan bahasa Arab & Inggris."
+    },
+    {
+      "q": "Apa saja program unggulan yang ditawarkan?",
+      "a": "Program unggulan kami meliputi Tahfidz Al-Qur'an 30 Juz, Tahsin Qiroati, kajian Kitab Kuning (metode Al-Miftah & Sidogiri), Ma'had Aly, serta penguatan Bahasa Arab & Inggris."
+    },
+    {
+      "q": "Bagaimana cara mendaftar PPDB?",
+      "a": "Pendaftaran dilakukan secara online melalui halaman PPDB atau formulir resmi. Tahapannya: isi formulir, unggah dokumen, ikut tes seleksi, pengumuman hasil, lalu daftar ulang."
+    },
+    {
+      "q": "Apakah tersedia program khusus Tahfidz 30 Juz?",
+      "a": "Ya. Program Takhassus Tahfidz dirancang intensif dengan bimbingan ustadz hafidz, setoran harian, serta muraja'ah mingguan dan bulanan, dengan target selesai 30 Juz dalam 3-4 tahun."
+    },
+    {
+      "q": "Fasilitas apa saja yang tersedia di pesantren?",
+      "a": "Fasilitas kami meliputi asrama nyaman, masjid berkapasitas 2000 jamaah, laboratorium IPA/Komputer/Bahasa, klinik kesehatan 24 jam, serta area olahraga dan ekstrakurikuler."
+    }
+  ]
+}

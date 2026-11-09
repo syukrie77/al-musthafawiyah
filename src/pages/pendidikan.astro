@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+
+const sekolah = [
+  { icon: '🏫', title: 'MTs', desc: 'Madrasah Tsanawiyah' },
+  { icon: '🎓', title: 'MA', desc: 'Madrasah Aliyah' },
+  { icon: '💻', title: 'SMPIT', desc: 'SMP Islam Terpadu' },
+  { icon: '📚', title: 'SMAIT', desc: 'SMA Islam Terpadu' },
+  { icon: '⚙️', title: 'SMKIT', desc: 'SMK Islam Terpadu' },
+];
+
+const ekskul = [
+  { icon: '🎵', title: 'Hadroh' },
+  { icon: '🏕️', title: 'Pramuka' },
+  { icon: '🎨', title: 'Kaligrafi' },
+  { icon: '🥋', title: 'Bela Diri' },
+];
+
+const fasilitas = [
+  { icon: '🛏️', title: 'Asrama', desc: 'Asrama nyaman & aman untuk putra-putri' },
+  { icon: '🕌', title: 'Masjid', desc: 'Masjid megah kapasitas 2000 jamaah' },
+  { icon: '🔬', title: 'Laboratorium', desc: 'Lab IPA, Komputer, & Bahasa' },
+  { icon: '🏥', title: 'Klinik', desc: 'Klinik kesehatan 24 jam' },
+];
+
+const jadwal = [
+  ['04:00', 'Bangun & Tahajud'],
+  ['04:30', 'Shalat Subuh Berjamaah'],
+  ['05:00', "Muroja'ah Hafalan"],
+  ['06:30', 'Sarapan & Persiapan Sekolah'],
+  ['07:00 - 12:00', 'Kegiatan Belajar Formal'],
+  ['12:00', 'Shalat Dzuhur & Istirahat'],
+  ['13:00 - 15:00', 'Kegiatan Belajar / Ekstrakurikuler'],
+  ['15:30', 'Shalat Ashar & Kajian Kitab'],
+  ['17:00', 'Setoran Hafalan'],
+  ['18:00', 'Shalat Maghrib & Tadarus'],
+  ['19:00', "Shalat Isya & Kajian Malam"],
+  ['21:00', 'Istirahat Malam'],
+];
+---
+
+<Layout
+  title="Pendidikan"
+  description="Program unggulan, madrasah & sekolah formal, Takhassus Tahfidz, Ma'had Aly, serta kegiatan dan fasilitas santri Pondok Pesantren Al-Musthafawiyah."
+  breadcrumbs={[{ name: 'Beranda', url: '/' }, { name: 'Pendidikan', url: '/pendidikan' }]}
+>
+  <section class="bg-gradient-to-br from-brand-800 to-brand-600 text-white py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold">Pendidikan</h1>
+      <p class="mt-4 text-lg text-brand-100 max-w-2xl mx-auto">Sistem pendidikan terpadu yang memadukan ilmu agama dan ilmu umum untuk mencetak generasi Qur'ani.</p>
+    </div>
+  </section>
+
+  <!-- Program Unggulan -->
+  <section id="program-unggulan" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Pendidikan" title="Program Unggulan" />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          ['📖', 'Tahfidz Al-Qur\'an', 'Program menghafal Al-Qur\'an 30 Juz dengan bimbingan mufassir berpengalaman.'],
+          ['🔤', 'Tahsin Qiroati', 'Perbaikan bacaan Al-Qur\'an dengan metode Qiroati yang sistematis dan terstruktur.'],
+          ['📚', 'Kitab Kuning', 'Studi kitab klasik metode Al-Miftah, Sidogiri, dan lainnya.'],
+          ['🌐', 'Bahasa Asing', 'Penguatan Bahasa Arab & Inggris untuk daya saing global.'],
+        ].map(([icon, title, desc]) => (
+          <div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition hover:-translate-y-1">
+            <div class="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">{icon}</div>
+            <h3 class="font-serif font-bold text-brand-800 mb-2">{title}</h3>
+            <p class="text-sm text-gray-500">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Madrasah / Sekolah -->
+  <section id="formal" class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Lembaga Pendidikan" title="Madrasah & Sekolah Formal" />
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        {sekolah.map((s) => (
+          <div class="bg-white rounded-xl p-6 text-center shadow-sm border-t-4 border-brand-600 hover:border-gold-400 hover:-translate-y-1 transition">
+            <div class="text-3xl mb-3">{s.icon}</div>
+            <h3 class="font-serif font-bold text-brand-800">{s.title}</h3>
+            <p class="text-xs text-gray-500 mt-1">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Takhassus -->
+  <section id="takhassus" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid gap-10 lg:grid-cols-2 items-center">
+      <div class="rounded-2xl overflow-hidden shadow-lg">
+        <img src="/images/tahfidz.jpg" alt="Takhassus Tahfidz" class="w-full aspect-[4/3] object-cover" loading="lazy" />
+      </div>
+      <div>
+        <span class="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Program Khusus</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-800 mb-3">Takhassus Tahfidz Al-Qur'an</h2>
+        <p class="text-gray-500 mb-4">Program intensif khusus bagi santri yang ingin menghafal Al-Qur'an 30 Juz dalam waktu terstruktur.</p>
+        <ul class="space-y-2 text-sm text-gray-600">
+          {['Bimbingan ustadz hafidz berpengalaman', 'Jadwal setoran hafalan harian', "Muraja'ah mingguan & bulanan", 'Target kelulusan 30 Juz dalam 3-4 tahun'].map((li) => (
+            <li class="pl-6 relative"><span class="absolute left-0 text-brand-600">✓</span>{li}</li>
+          ))}
+        </ul>
+        <a href="/ppdb" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-full font-semibold text-sm mt-6 transition">ℹ️ Info Pendaftaran</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ma'had Aly -->
+  <section id="mahad-aly" class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid gap-10 lg:grid-cols-2 items-center">
+      <div class="order-2 lg:order-1">
+        <span class="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Pendidikan Tinggi</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-800 mb-3">Ma'had Aly</h2>
+        <p class="text-gray-500 mb-4">Pendidikan Islam tingkat tinggi yang mendalami ilmu-ilmu syariah, bahasa Arab, dan kajian kitab klasik secara mendalam.</p>
+        <ul class="space-y-2 text-sm text-gray-600">
+          {['Kurikulum studi Islam tingkat lanjut', 'Kitab-kitab turats & fikih mendalam', 'Bahasa Arab intensif', 'Menyiapkan ulama & cendekiawan Muslim'].map((li) => (
+            <li class="pl-6 relative"><span class="absolute left-0 text-brand-600">✓</span>{li}</li>
+          ))}
+        </ul>
+        <a href="/kontak" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-full font-semibold text-sm mt-6 transition">✉️ Hubungi Kami</a>
+      </div>
+      <div class="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-lg">
+        <img src="/images/mahad-aly.jpg" alt="Ma'had Aly" class="w-full aspect-[4/3] object-cover" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- OSMA -->
+  <section id="osma" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Organisasi" title="OSMA (Organisasi Santri)" subtitle="Wadah kepemimpinan dan pengembangan diri santri melalui organisasi intra pesantren." />
+    </div>
+  </section>
+
+  <!-- Ekstrakurikuler -->
+  <section id="ekskul" class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Ekstrakurikuler" title="Kegiatan Ekstrakurikuler" />
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {ekskul.map((e) => (
+          <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:-translate-y-1 transition">
+            <div class="text-3xl mb-3">{e.icon}</div>
+            <h3 class="font-serif font-bold text-brand-800">{e.title}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Fasilitas -->
+  <section id="fasilitas" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Fasilitas" title="Fasilitas Pesantren" />
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {fasilitas.map((f) => (
+          <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:-translate-y-1 transition">
+            <div class="text-3xl mb-3">{f.icon}</div>
+            <h3 class="font-serif font-bold text-brand-800">{f.title}</h3>
+            <p class="text-sm text-gray-500 mt-1">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Jadwal -->
+  <section id="jadwal" class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Rutinitas" title="Jadwal Harian Santri" />
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-brand-600 text-white">
+              <th class="text-left px-5 py-3 font-semibold">Waktu</th>
+              <th class="text-left px-5 py-3 font-semibold">Kegiatan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {jadwal.map(([waktu, kegiatan]) => (
+              <tr class="border-b border-gray-100 hover:bg-brand-50 transition">
+                <td class="px-5 py-3 font-medium text-brand-700 whitespace-nowrap">{waktu}</td>
+                <td class="px-5 py-3 text-gray-600">{kegiatan}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,149 @@
+---
+import site from '../data/site.json';
+import knowledge from '../data/knowledge.json';
+const wa = site.whatsapp;
+---
+
+<div id="wa-chat" class="fixed bottom-5 right-5 z-50 font-sans">
+  <div
+    id="wa-panel"
+    class="hidden mb-3 w-[22rem] max-w-[calc(100vw-2.5rem)] rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 overflow-hidden flex-col"
+    style="display:none"
+  >
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-brand-600 to-brand-700 px-4 py-3 text-white flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">AI</div>
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold text-sm">{site.shortName}</p>
+        <p class="text-xs text-brand-100" id="wa-status">Online • Siap membantu</p>
+      </div>
+      <button id="wa-close" class="text-white/70 hover:text-white" aria-label="Tutup">✕</button>
+    </div>
+
+    <!-- Messages -->
+    <div class="flex-1 p-4 space-y-3 max-h-80 overflow-y-auto bg-gray-50" id="wa-messages">
+      <div class="flex gap-2 items-end">
+        <div class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-bold shrink-0">AI</div>
+        <div class="bg-white rounded-2xl rounded-tl-none px-4 py-3 text-sm text-gray-700 shadow-sm max-w-[85%] leading-relaxed">
+          {knowledge.greeting}
+        </div>
+      </div>
+    </div>
+
+    <!-- Suggestions -->
+    <div class="px-4 pt-2 pb-1 bg-white border-t border-gray-100" id="wa-suggestions">
+      <div class="flex flex-wrap gap-2">
+        {knowledge.suggestions.map((s) => (
+          <button
+            class="wa-suggest text-xs bg-brand-50 text-brand-700 px-3 py-1.5 rounded-full hover:bg-brand-100 transition font-medium"
+            data-msg={s}
+          >
+            {s}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-3 border-t border-gray-100 bg-white">
+      <form id="wa-form" class="flex gap-2">
+        <input
+          id="wa-input"
+          type="text"
+          placeholder="Tulis pertanyaan..."
+          autocomplete="off"
+          class="flex-1 rounded-full border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+        />
+        <button type="submit" class="bg-brand-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-brand-700 transition shrink-0" aria-label="Kirim">
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M3.105 2.289a.75.75 0 00-.826.95l1.414 4.925A1.5 1.5 0 005.135 9.25h6.115a.75.75 0 010 1.5H5.135a1.5 1.5 0 00-1.442 1.086l-1.414 4.926a.75.75 0 00.826.95 28.896 28.896 0 0015.293-7.154.75.75 0 000-1.115A28.897 28.897 0 003.105 2.289z"/></svg>
+        </button>
+      </form>
+      <p class="text-[10px] text-gray-400 mt-1.5 text-center">Powered by Al-Musthafawiyah AI • <a href={`https://wa.me/${wa}`} class="text-brand-600 hover:underline" target="_blank" rel="noopener">Chat WA</a></p>
+    </div>
+  </div>
+
+  <!-- Toggle -->
+  <button
+    id="wa-toggle"
+    aria-label="Chat AI Al-Musthafawiyah"
+    class="flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-full pl-4 pr-5 py-3 shadow-xl hover:from-brand-700 hover:to-brand-800 transition-all group"
+  >
+    <svg class="w-6 h-6 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+    </svg>
+    <span class="text-sm font-semibold">Chat AI</span>
+  </button>
+</div>
+
+<script define:vars={{ intents: knowledge.intents, fallback: knowledge.fallback, wa }}>
+  const panel   = document.getElementById('wa-panel');
+  const toggle  = document.getElementById('wa-toggle');
+  const close   = document.getElementById('wa-close');
+  const form    = document.getElementById('wa-form');
+  const input   = document.getElementById('wa-input');
+  const messages= document.getElementById('wa-messages');
+  const sugBox  = document.getElementById('wa-suggestions');
+  let open = false;
+
+  const show = () => { open = true; panel.style.display = 'flex'; toggle.style.display = 'none'; };
+  const hide = () => { open = false; panel.style.display = 'none'; toggle.style.display = 'flex'; };
+
+  toggle?.addEventListener('click', show);
+  close?.addEventListener('click', hide);
+
+  function matchIntent(text) {
+    const t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    for (const intent of intents) {
+      if (intent.keywords.some((kw) => t.includes(kw))) return intent;
+    }
+    return null;
+  }
+
+  function addBot(text) {
+    const row = document.createElement('div');
+    row.className = 'flex gap-2 items-end';
+    row.innerHTML = `<div class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-bold shrink-0">AI</div>
+      <div class="bg-white rounded-2xl rounded-tl-none px-4 py-3 text-sm text-gray-700 shadow-sm max-w-[85%] leading-relaxed">${text.replace(/\n/g, '<br>')}</div>`;
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addUser(text) {
+    const row = document.createElement('div');
+    row.className = 'flex justify-end';
+    row.innerHTML = `<div class="bg-brand-600 text-white rounded-2xl rounded-br-none px-4 py-3 text-sm max-w-[85%]">${text}</div>`;
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function updateSuggestions(quick) {
+    sugBox.innerHTML = quick.map((q) =>
+      `<button class="wa-suggest text-xs bg-brand-50 text-brand-700 px-3 py-1.5 rounded-full hover:bg-brand-100 transition font-medium" data-msg="${q}">${q}</button>`
+    ).join('');
+  }
+
+  function handleInput(text) {
+    if (!text.trim()) return;
+    addUser(text);
+    input.value = '';
+
+    const intent = matchIntent(text);
+    if (intent) {
+      setTimeout(() => {
+        addBot(intent.answer);
+        updateSuggestions([intent.quick, ...knowledge.suggestions.slice(0, 3)]);
+      }, 400);
+    } else {
+      setTimeout(() => {
+        addBot(fallback + `<br><br><a href="https://wa.me/${wa}?text=${encodeURIComponent(text)}" target="_blank" rel="noopener" class="inline-block mt-2 bg-[#25D366] text-white px-4 py-1.5 rounded-full text-xs font-medium hover:bg-[#1faa52]">💬 Chat WhatsApp</a>`);
+        updateSuggestions(knowledge.suggestions.slice(0, 4));
+      }, 400);
+    }
+  }
+
+  form?.addEventListener('submit', (e) => { e.preventDefault(); handleInput(input.value); });
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.wa-suggest');
+    if (btn) handleInput(btn.dataset.msg);
+  });
+</script>

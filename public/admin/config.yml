@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: aretainformatics/almusthafawiyah-sch-id # TODO: ganti dengan repo GitHub kamu
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+site_url: https://almusthafawiyah.sch.id
+display_url: https://almusthafawiyah.sch.id
+logo_url: https://almusthafawiyah.sch.id/images/logo-almusthafawiyah.png
+
+collections:
+  - name: "blog"
+    label: "Blog & Berita"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Deskripsi", name: "description", widget: "text" }
+      - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Penulis", name: "author", widget: "string", default: "Tim Redaksi Al-Musthafawiyah" }
+      - { label: "Cover", name: "cover", widget: "image", required: false }
+      - { label: "SEO Title", name: "seoTitle", widget: "string", required: false }
+      - { label: "SEO Description", name: "seoDescription", widget: "text", required: false }
+      - { label: "Isi Artikel", name: "body", widget: "markdown" }

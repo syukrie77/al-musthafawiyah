@@ -1,0 +1,107 @@
+---
+import site from '../data/site.json';
+const year = new Date().getFullYear();
+
+const socialLinks = [
+  { label: 'Instagram', href: site.social.instagram, icon: '📸' },
+  { label: 'Facebook', href: site.social.facebook, icon: '👤' },
+  { label: 'YouTube', href: site.social.youtube, icon: '▶️' },
+  { label: 'TikTok', href: site.social.tiktok, icon: '🎵' },
+];
+---
+
+<footer class="bg-brand-900 text-gray-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-10">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-2.5 mb-4">
+          <a href="/" class="inline-block bg-white rounded-xl px-3 py-2" aria-label="Al-Musthafawiyah — Beranda">
+            <img
+              src="/images/logo-almusthafawiyah.png"
+              alt="Pondok Pesantren Al-Musthafawiyah"
+              class="h-10 w-auto"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed max-w-sm">{site.tagline}.</p>
+
+        <div class="flex flex-wrap gap-2 mt-6">
+          {socialLinks.map((s) => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 hover:bg-white/10 hover:text-gold-300 transition"
+            >
+              <span>{s.icon}</span>{s.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Navigasi</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/" class="hover:text-gold-300 transition">Beranda</a></li>
+          <li><a href="/tentang" class="hover:text-gold-300 transition">Profil</a></li>
+          <li><a href="/pendidikan" class="hover:text-gold-300 transition">Pendidikan</a></li>
+          <li><a href="/ppdb" class="hover:text-gold-300 transition">PPDB</a></li>
+          <li><a href="/blog" class="hover:text-gold-300 transition">Blog</a></li>
+          <li><a href="/kontak" class="hover:text-gold-300 transition">Kontak</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Program</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/pendidikan#takhassus" class="hover:text-gold-300 transition">📖 Tahfidz Al-Qur'an 30 Juz</a></li>
+          <li><a href="/pendidikan#program-unggulan" class="hover:text-gold-300 transition">🔤 Tahsin Qiroati</a></li>
+          <li><a href="/pendidikan#program-unggulan" class="hover:text-gold-300 transition">📚 Kitab Kuning</a></li>
+          <li><a href="/pendidikan#mahad-aly" class="hover:text-gold-300 transition">🎓 Ma'had Aly</a></li>
+        </ul>
+
+        <h3 class="text-white font-semibold mb-4 mt-8 text-sm uppercase tracking-wider">Sumber Daya</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/blog" class="hover:text-gold-300 transition">Artikel Islami</a></li>
+          <li><a href="/#agenda" class="hover:text-gold-300 transition">Agenda Kegiatan</a></li>
+          <li><a href="/faq" class="hover:text-gold-300 transition">FAQ</a></li>
+          <li><a href="/rss.xml" class="hover:text-gold-300 transition">RSS Feed</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Kontak</h3>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li class="flex items-start gap-2.5">
+            <span class="text-gold-400">📍</span>
+            <span>{site.address}</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-gold-400">✉️</span>
+            <a href={`mailto:${site.email}`} class="hover:text-gold-300 transition">{site.email}</a>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-gold-400">📞</span>
+            <a href={`https://wa.me/${site.whatsapp}`} class="hover:text-gold-300 transition">{site.phone}</a>
+          </li>
+        </ul>
+
+        <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#1faa52] transition">
+          💬 Chat WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-12 pt-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© {year} {site.title}. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="/faq" class="hover:text-gold-300 transition">FAQ</a>
+          <a href="/rss.xml" class="hover:text-gold-300 transition">RSS</a>
+          <a href="/sitemap-index.xml" class="hover:text-gold-300 transition">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,49 @@
+---
+import site from '../data/site.json';
+
+const stats = (site.stats ?? []) as Array<{ label: string; value: number; suffix: string; icon: string }>;
+---
+
+<section class="bg-brand-800 py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+      {stats.map((s) => (
+        <div class="text-center">
+          <div class="text-3xl mb-2">{s.icon}</div>
+          <div class="flex items-baseline justify-center gap-0.5">
+            <span
+              class="text-3xl sm:text-4xl font-extrabold text-white"
+              data-target-value={String(s.value)}
+              data-target-suffix={s.suffix}
+            >
+              0{s.suffix}
+            </span>
+          </div>
+          <p class="mt-1 text-sm text-brand-200">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-target-value]').forEach((el) => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        obs.unobserve(e.target);
+        const target = parseInt((e.target as HTMLElement).dataset.targetValue || '0', 10);
+        const suffix = (e.target as HTMLElement).dataset.targetSuffix || '';
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 60));
+        const tick = () => {
+          current = Math.min(current + step, target);
+          (e.target as HTMLElement).textContent = current.toLocaleString('id-ID') + suffix;
+          if (current < target) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+</script>

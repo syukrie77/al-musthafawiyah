@@ -1,0 +1,27 @@
+{
+  "name": "almusthafawiyah-sch-id",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Pondok Pesantren Al-Musthafawiyah — website pintar dengan SEO, auto-blog & auto-post sosmed berbasis AI.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "blog:new": "node scripts/generate-blog.mjs",
+    "blog:new:pendidikan": "node scripts/generate-blog.mjs --category \"Pendidikan\"",
+    "blog:new:ai": "node scripts/generate-blog.mjs --category \"Teknologi AI\"",
+    "og:image": "node scripts/make-og-image.mjs",
+    "social:post": "node scripts/post-social.mjs",
+    "automate": "node scripts/automate.mjs",
+    "automate:dry": "node scripts/automate.mjs --dry-run"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.13",
+    "astro": "^4.10.0",
+    "sharp": "^0.33.4",
+    "tailwindcss": "^3.4.4"
+  }
+}

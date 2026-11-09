@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+import StatsSection from '../components/StatsSection.astro';
+import AgendaSection from '../components/AgendaSection.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const programs = [
+  { icon: '📖', title: 'Tahfidz Al-Qur\'an', desc: 'Program menghafal Al-Qur\'an 30 Juz dengan bimbingan mufassir berpengalaman.', featured: true },
+  { icon: '🔤', title: 'Tahsin Qiroati', desc: 'Perbaikan bacaan Al-Qur\'an dengan metode Qiroati yang sistematis dan terstruktur.' },
+  { icon: '📚', title: 'Kitab Kuning', desc: 'Studi kitab klasik metode Al-Miftah, Sidogiri, dan lainnya.' },
+  { icon: '🌐', title: 'Bahasa Asing', desc: 'Penguatan Bahasa Arab & Inggris untuk daya saing global.' },
+];
+
+const slides = [
+  {
+    image: '/images/hero-1.jpg',
+    tagline: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
+    title: 'Pondok Pesantren',
+    highlight: 'Al-Musthafawiyah',
+    desc: 'Membentuk Generasi Qur\'ani yang Berilmu, Berakhlak, dan Berdaya Saing Global',
+    primary: { label: 'Daftar Sekarang', href: '/ppdb', icon: '👥' },
+    secondary: { label: 'Profil Pesantren', href: '/tentang', icon: '▶' },
+  },
+  {
+    image: '/images/hero-2.jpg',
+    tagline: 'Program Unggulan',
+    title: 'Tahfidz Al-Qur\'an',
+    highlight: '30 Juz',
+    desc: 'Program Tahfidz Intensif dengan Metode Qiroati dan Bimbingan Mufassir',
+    primary: { label: 'Pelajari Program', href: '/pendidikan#takhassus', icon: '📖' },
+    secondary: null,
+  },
+  {
+    image: '/images/hero-3.jpg',
+    tagline: 'PPDB 2027/2028',
+    title: 'Pendaftaran',
+    highlight: 'Sudah Dibuka!',
+    desc: 'Bergabung bersama ribuan santri yang telah merasakan pendidikan berkualitas',
+    primary: { label: 'Formulir Online', href: '/ppdb', icon: '↗' },
+    secondary: { label: 'Info Lengkap', href: '/ppdb', icon: 'ℹ️' },
+  },
+];
+---
+
+<Layout>
+  <!-- Hero Slider -->
+  <section class="relative h-[80vh] min-h-[520px] overflow-hidden" id="hero">
+    {slides.map((s, i) => (
+      <div class={`hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${i === 0 ? 'opacity-100 z-20' : 'opacity-0 z-10'}`} style={`background-image:url('${s.image}')`} data-slide={i}>
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-900/85 to-brand-900/55"></div>
+        <div class="relative h-full flex flex-col items-center justify-center text-center px-4 z-30 text-white">
+          <p class="font-serif text-xl sm:text-2xl text-gold-300 mb-3">{s.tagline}</p>
+          <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">{s.title}<br /><span class="text-gold-400">{s.highlight}</span></h1>
+          <p class="mt-4 text-base sm:text-lg text-white/85 max-w-xl">{s.desc}</p>
+          <div class="mt-7 flex gap-3 flex-wrap justify-center">
+            {s.primary && (
+              <a href={s.primary.href} class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-full font-semibold text-sm shadow-lg shadow-brand-600/30 transition hover:-translate-y-0.5">
+                <span>{s.primary.icon}</span> {s.primary.label}
+              </a>
+            )}
+            {s.secondary && (
+              <a href={s.secondary.href} class="inline-flex items-center gap-2 border-2 border-white/50 hover:bg-white hover:text-brand-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition">
+                <span>{s.secondary.icon}</span> {s.secondary.label}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <!-- Hero nav -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-4">
+      <button id="hero-prev" class="w-10 h-10 rounded-full bg-white/15 border border-white/25 text-white hover:bg-brand-600 transition" aria-label="Sebelumnya">‹</button>
+      <div class="flex gap-2" id="hero-dots">
+        {slides.map((_, i) => (
+          <button class={`hero-dot w-2.5 h-2.5 rounded-full transition ${i === 0 ? 'bg-gold-400 scale-125' : 'bg-white/30'}`} data-dot={i} aria-label={`Slide ${i + 1}`}></button>
+        ))}
+      </div>
+      <button id="hero-next" class="w-10 h-10 rounded-full bg-white/15 border border-white/25 text-white hover:bg-brand-600 transition" aria-label="Berikutnya">›</button>
+    </div>
+  </section>
+
+  <StatsSection />
+
+  <!-- Sambutan Pengasuh -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid gap-10 lg:grid-cols-2 items-center">
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden border-4 border-brand-600 shadow-lg">
+          <img src="/images/pengasuh.jpg" alt="K.H. Ahmad Musthafa — Pengasuh Pesantren" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+        </div>
+        <div class="absolute -bottom-5 -right-5 w-14 h-14 bg-gold-400 rounded-full flex items-center justify-center text-white text-xl shadow-lg">❝</div>
+      </div>
+      <div>
+        <span class="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Sambutan Pengasuh</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-800">K.H. Ahmad Musthafa</h2>
+        <p class="text-gray-500 text-sm mb-4">Pengasuh Pondok Pesantren Al-Musthafawiyah</p>
+        <blockquote class="font-serif text-base sm:text-lg text-gray-600 border-l-4 border-gold-400 pl-5 italic leading-relaxed">
+          "Assalamu'alaikum Warahmatullahi Wabarakatuh. Dengan izin Allah SWT, Pondok Pesantren Al-Musthafawiyah hadir sebagai lembaga pendidikan Islam yang mengintegrasikan ilmu pengetahuan umum dengan nilai-nilai Al-Qur'an dan Sunnah."
+        </blockquote>
+        <a href="/tentang#sejarah" class="inline-flex items-center gap-2 bg-gold-400 hover:bg-gold-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition">
+          📖 Baca Selengkapnya
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Unggulan -->
+  <section class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Pendidikan" title="Program Unggulan" subtitle="Empat pilar keilmuan yang membentuk santri Qur'ani dan berdaya saing." />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {programs.map((p) => (
+          <div class={`relative bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition hover:-translate-y-1 ${p.featured ? 'border-2 border-gold-400' : ''}`}>
+            {p.featured && <span class="absolute top-3 right-3 bg-gold-400 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Populer</span>}
+            <div class="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">{p.icon}</div>
+            <h3 class="font-serif font-bold text-brand-800 mb-2">{p.title}</h3>
+            <p class="text-sm text-gray-500">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Agenda -->
+  <AgendaSection />
+
+  <!-- Blog / Berita -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Berita & Informasi" title="Kabar Pesantren" subtitle="Artikel islami, pengumuman, dan berita terbaru dari Al-Musthafawiyah." />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}/`} class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition hover:-translate-y-1">
+            <div class="h-48 overflow-hidden">
+              <img src={post.data.cover || site.ogImage} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-semibold text-brand-600">{post.data.date.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              <h3 class="font-serif font-bold text-brand-800 mt-1 leading-snug group-hover:text-brand-600 transition">{post.data.title}</h3>
+              <p class="text-sm text-gray-500 mt-1 line-clamp-2">{post.data.description}</p>
+              <span class="inline-flex items-center gap-1 text-brand-600 font-semibold text-sm mt-3 group-hover:gap-2 transition">Baca Selengkapnya →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/blog" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition">
+          Lihat Semua Berita →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PPDB CTA -->
+  <section class="bg-gradient-to-br from-brand-800 to-brand-600 text-white py-16 sm:py-20 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold">Pendaftaran Santri Baru (PPDB)</h2>
+      <p class="mt-4 text-lg text-brand-100">Tahun Ajaran 2027/2028 telah dibuka! Segera daftarkan putra-putri Anda untuk bergabung bersama ribuan santri Al-Musthafawiyah.</p>
+      <div class="mt-8 flex gap-4 justify-center flex-wrap">
+        <a href="/ppdb" class="inline-flex items-center gap-2 bg-gold-400 hover:bg-gold-500 text-white px-7 py-3.5 rounded-full font-bold text-base transition hover:-translate-y-0.5 shadow-lg shadow-gold-400/30">
+          ↗ Formulir Pendaftaran Online
+        </a>
+        <a href="/kontak" class="inline-flex items-center gap-2 border-2 border-gold-300 text-gold-100 hover:bg-gold-300 hover:text-brand-900 px-7 py-3.5 rounded-full font-semibold text-base transition">
+          📞 Hubungi Admin
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
+  const dots = document.querySelectorAll<HTMLElement>('.hero-dot');
+  let current = 0;
+  let timer: number | undefined;
+
+  function go(i: number) {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, idx) => {
+      s.classList.toggle('opacity-100', idx === current);
+      s.classList.toggle('opacity-0', idx !== current);
+      s.classList.toggle('z-20', idx === current);
+      s.classList.toggle('z-10', idx !== current);
+    });
+    dots.forEach((d, idx) => {
+      d.classList.toggle('bg-gold-400', idx === current);
+      d.classList.toggle('scale-125', idx === current);
+      d.classList.toggle('bg-white/30', idx !== current);
+    });
+  }
+
+  function auto() {
+    timer = window.setInterval(() => go(current + 1), 6000);
+  }
+  function reset() {
+    if (timer) clearInterval(timer);
+    auto();
+  }
+
+  document.getElementById('hero-next')?.addEventListener('click', () => { go(current + 1); reset(); });
+  document.getElementById('hero-prev')?.addEventListener('click', () => { go(current - 1); reset(); });
+  dots.forEach((d) => d.addEventListener('click', () => { go(parseInt(d.dataset.dot || '0', 10)); reset(); }));
+  auto();
+</script>

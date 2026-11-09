@@ -1,0 +1,13 @@
+{
+  "name": "Pondok Pesantren Al-Musthafawiyah",
+  "short_name": "Al-Musthafawiyah",
+  "description": "Pondok Pesantren Al-Musthafawiyah — lembaga pendidikan Islam terpadu dengan program Tahfidz Al-Qur'an, Kitab Kuning, dan Bahasa Arab & Inggris.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a6b3c",
+  "icons": [
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

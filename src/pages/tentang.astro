@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+import SectionTitle from '../components/SectionTitle.astro';
+
+const timeline = [
+  { year: '2001', title: 'Pendirian Pesantren', desc: 'K.H. Ahmad Musthafa mendirikan majelis taklim kecil dengan 15 santri pertama.' },
+  { year: '2005', title: 'MTs Resmi Terdaftar', desc: 'Madrasah Tsanawiyah mendapat izin operasional dari Kemenag.' },
+  { year: '2010', title: 'MA & Program Tahfidz', desc: 'Dibuka Madrasah Aliyah dan Program Tahfidz 30 Juz intensif.' },
+  { year: '2015', title: 'Ekspansi Fasilitas', desc: 'Pembangunan asrama modern, masjid kapasitas 2000 jamaah, dan laboratorium.' },
+  { year: '2020', title: "Ma'had Aly & SMKIT", desc: 'Pembukaan Ma\'had Aly untuk studi Islam tingkat tinggi dan SMK IT.' },
+  { year: '2026', title: '3.500+ Santri', desc: 'Menjadi salah satu pesantren terbesar di wilayah dengan 3.500+ santri aktif.' },
+];
+
+const visiMisi = [
+  {
+    icon: '👁️', title: 'Visi', border: 'border-b-brand-600',
+    content: '"Menjadi lembaga pendidikan Islam terdepan yang mencetak generasi Qur\'ani yang berilmu, berakhlak mulia, mandiri, dan berkontribusi positif bagi umat dan bangsa."',
+  },
+  {
+    icon: '🎯', title: 'Misi', border: 'border-b-gold-400',
+    items: [
+      'Pendidikan Islam terpadu berbasis Al-Qur\'an & Sunnah',
+      'Tahfidz Al-Qur\'an dengan metode teruji',
+      'Kemampuan bahasa Arab & Inggris',
+      'Karakter mandiri, disiplin, cinta tanah air',
+    ],
+  },
+  {
+    icon: '🏆', title: 'Target Kelulusan', border: 'border-b-brand-500',
+    items: [
+      'Hafal minimal 5 Juz (Reguler) / 30 Juz (Takhassus)',
+      'Mampu membaca kitab kuning',
+      'Berbahasa Arab & Inggris aktif',
+      'Siap melanjutkan ke perguruan tinggi',
+    ],
+  },
+];
+
+const struktur = [
+  { role: 'Pengasuh', name: 'K.H. Ahmad Musthafa' },
+  { role: 'Ketua Yayasan', name: 'H. Muhammad Syukri, S.T, M.TI' },
+  { role: 'Kepala Madrasah', name: 'Ust. Abdullah Fauzi, M.Pd' },
+  { role: 'Wakil Kepala', name: 'Ust. Ahmad Ridwan, S.Ag' },
+  { role: 'Kabag Tahfidz', name: 'Ust. Hafidz Qur\'an' },
+  { role: 'Kabag Kesiswaan', name: 'Ust. Hasan Basri, S.Pd.I' },
+];
+---
+
+<Layout
+  title="Profil Pesantren"
+  description="Sejarah, visi misi, struktur organisasi, dan legalitas Pondok Pesantren Al-Musthafawiyah."
+  breadcrumbs={[{ name: 'Beranda', url: '/' }, { name: 'Profil', url: '/tentang' }]}
+>
+  <!-- Page header -->
+  <section class="bg-gradient-to-br from-brand-800 to-brand-600 text-white py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold">Profil Pesantren</h1>
+      <p class="mt-4 text-lg text-brand-100 max-w-2xl mx-auto">Mengenal lebih dekat sejarah, landasan, dan kepengurusan Pondok Pesantren Al-Musthafawiyah.</p>
+    </div>
+  </section>
+
+  <!-- Sejarah -->
+  <section id="sejarah" class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Profil Pesantren" title="Sejarah & Pendirian" />
+      <div class="relative">
+        <div class="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-brand-600 -translate-x-1/2 hidden sm:block"></div>
+        <div class="space-y-6">
+          {timeline.map((t, i) => (
+            <div class={`relative flex ${i % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} items-start gap-4`}>
+              <div class="absolute left-4 sm:left-1/2 top-6 w-4 h-4 bg-gold-400 border-4 border-brand-600 rounded-full -translate-x-1/2"></div>
+              <div class={`sm:w-1/2 ${i % 2 === 0 ? 'sm:pr-10 pl-12 sm:pl-0' : 'sm:pl-10 pl-12'}`}>
+                <div class="bg-white rounded-xl shadow-sm p-5 border-t-4 border-brand-600">
+                  <span class="inline-block bg-brand-600 text-white text-xs font-bold px-3 py-0.5 rounded-full mb-2">{t.year}</span>
+                  <h3 class="font-serif font-bold text-brand-800">{t.title}</h3>
+                  <p class="text-sm text-gray-500 mt-1">{t.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visi Misi -->
+  <section id="visi-misi" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Landasan" title="Visi, Misi & Target Kelulusan" />
+      <div class="grid gap-6 md:grid-cols-3">
+        {visiMisi.map((v) => (
+          <div class={`bg-white rounded-2xl p-8 shadow-sm border-b-4 ${v.border} hover:-translate-y-1 transition text-center`}>
+            <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">{v.icon}</div>
+            <h3 class="font-serif font-bold text-brand-800 text-lg mb-3">{v.title}</h3>
+            {v.content && <p class="text-sm text-gray-500 italic leading-relaxed">{v.content}</p>}
+            {v.items && (
+              <ul class="text-left text-sm text-gray-500 space-y-2">
+                {v.items.map((it) => (
+                  <li class="pl-5 relative">
+                    <span class="absolute left-0 text-brand-600">✓</span>{it}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Struktur -->
+  <section id="struktur" class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Organisasi" title="Struktur Organisasi" subtitle="Susunan pengurus yang mengelola jalannya pendidikan di pesantren." />
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {struktur.map((s) => (
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-center gap-4">
+            <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center text-xl">🧕</div>
+            <div>
+              <p class="text-xs text-gray-400 uppercase tracking-wide">{s.role}</p>
+              <p class="font-serif font-bold text-brand-800">{s.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Legalitas -->
+  <section id="legalitas" class="py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Legalitas" title="Legalitas & Perizinan" />
+      <div class="bg-white rounded-2xl shadow-sm divide-y divide-gray-100">
+        {[
+          ['Akta Notaris Yayasan', 'No. 12 Tahun 2001'],
+          ['Izin Operasional MTs', 'Kemenag Kab. Kebumen'],
+          ['Izin Operasional MA', 'Kemenag Kab. Kebumen'],
+          ['NPSN', 'Terdaftar di Kemendikbud'],
+          ['Izin Ma\'had Aly', 'Dirjen Pendidikan Islam'],
+        ].map(([k, v]) => (
+          <div class="flex justify-between items-center p-5">
+            <span class="font-semibold text-gray-700">{k}</span>
+            <span class="text-sm text-gray-500">{v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Alumni -->
+  <section id="alumni" class="bg-brand-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle eyebrow="Alumni" title="Ikatan Keluarga Alumni" />
+      <div class="grid gap-8 lg:grid-cols-2 items-center">
+        <div>
+          <h3 class="font-serif text-2xl font-bold text-brand-800 mb-3">Jejak Alumni Al-Musthafawiyah</h3>
+          <p class="text-gray-500 mb-6">Alumni kami tersebar di seluruh Indonesia dan dunia, berkiprah di berbagai bidang: ulama, pendidik, profesional, dan pengusaha.</p>
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-gold-400">
+              <p class="italic text-gray-600 text-sm">"Al-Musthafawiyah membentuk karakter dan keilmuan saya. Alhamdulillah kini saya bisa mengajar di pesantren lain."</p>
+              <strong class="text-brand-800 text-sm block mt-2">— Ust. Ahmad Fauzi, Alumni 2010</strong>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-gold-400">
+              <p class="italic text-gray-600 text-sm">"Bekalan bahasa Arab dari pesantren sangat membantu karir saya di perusahaan internasional."</p>
+              <strong class="text-brand-800 text-sm block mt-2">— H. Ridwan, Alumni 2008</strong>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="/images/alumni.jpg" alt="Alumni Al-Musthafawiyah" class="w-full aspect-[4/3] object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

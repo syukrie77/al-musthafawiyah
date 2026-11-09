@@ -1,0 +1,42 @@
+{
+  "title": "Agenda Terdekat",
+  "subtitle": "Kegiatan pesantren, kajian, dan momen penting yang akan datang",
+  "items": [
+    {
+      "date": "2026-11-10",
+      "time": "08:00 - 12:00 WIB",
+      "title": "Wisuda Tahfidz Angkatan ke-13",
+      "desc": "Prosesi wisuda santri yang telah menyelesaikan hafalan Al-Qur'an 30 Juz.",
+      "place": "Masjid Al-Musthafawiyah",
+      "type": "Wisuda",
+      "link": "/blog"
+    },
+    {
+      "date": "2026-11-20",
+      "time": "19:00 - 21:30 WIB",
+      "title": "Peringatan Maulid Nabi Muhammad SAW",
+      "desc": "Rangkaian pembacaan Maulid, ceramah agama, dan hadroh akbar bersama santri.",
+      "place": "Aula Utama Pesantren",
+      "type": "Kegiatan",
+      "link": "/blog"
+    },
+    {
+      "date": "2026-12-05",
+      "time": "09:00 - 15:00 WIB",
+      "title": "Open House & Sosialisasi PPDB 2027/2028",
+      "desc": "Kenalan langsung dengan program unggulan, asrama, dan fasilitas pesantren.",
+      "place": "Kampus Al-Musthafawiyah",
+      "type": "PPDB",
+      "link": "/ppdb"
+    },
+    {
+      "date": "2026-12-15",
+      "time": "08:00 - 17:00 WIB",
+      "title": "Khataman & Haflah Akhirussanah",
+      "desc": "Khataman Al-Qur'an bersama dan haflah akhir tahun ajaran santri.",
+      "place": "Masjid Al-Musthafawiyah",
+      "type": "Kegiatan",
+      "link": "/blog"
+    }
+  ]
+}

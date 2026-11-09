@@ -1,0 +1,67 @@
+{
+  "greeting": "Assalamu'alaikum! 👋 Saya Asisten AI Al-Musthafawiyah. Saya bisa bantu soal **PPDB, program unggulan, tahfidz, kitab kuning, dan fasilitas pesantren**. Ada yang bisa saya bantu?",
+  "fallback": "Afwan, pertanyaan itu belum ada di basis pengetahuan saya. 🤔 Silakan chat langsung dengan admin pesantren lewat WhatsApp, ya!",
+  "suggestions": [
+    "Cara daftar PPDB",
+    "Program unggulan",
+    "Tahfidz 30 Juz",
+    "Biaya & beasiswa",
+    "Fasilitas pesantren"
+  ],
+  "intents": [
+    {
+      "id": "ppdb",
+      "keywords": ["daftar", "ppdb", "pendaftaran", "registrasi", "gabung", "masuk", "santri baru", "penerimaan", "cara daftar", "formulir"],
+      "answer": "**Cara daftar PPDB Al-Musthafawiyah:**\n\n1. Isi formulir online di halaman [PPDB](/ppdb)\n2. Upload rapor & dokumen pendukung\n3. Ikut tes seleksi (membaca Al-Qur'an & wawancara)\n4. Pengumuman hasil seleksi\n5. Daftar ulang & orientasi santri\n\nMau saya bantu sambungkan ke admin PPDB via WhatsApp? 😊",
+      "quick": "Saya ingin mendaftar PPDB Al-Musthafawiyah"
+    },
+    {
+      "id": "program",
+      "keywords": ["program", "unggulan", "tahfidz", "tahsin", "qiroati", "kitab kuning", "mahad aly", "ma'had aly", "bahasa", "pilihan"],
+      "answer": "**Program unggulan Al-Musthafawiyah:**\n\n📖 **Tahfidz Al-Qur'an** — hafalan 30 Juz intensif\n🔤 **Tahsin Qiroati** — perbaikan bacaan sistematis\n📚 **Kitab Kuning** — metode Al-Miftah & Sidogiri\n🌐 **Bahasa Asing** — Arab & Inggris aktif\n🎓 **Ma'had Aly** — studi Islam tingkat lanjut\n\nDetail lengkap ada di halaman [Pendidikan](/pendidikan). Mau tahu program yang mana?",
+      "quick": "Apa saja program unggulan pesantren?"
+    },
+    {
+      "id": "tahfidz",
+      "keywords": ["hafalan", "hafal", "30 juz", "juz 30", "takhassus", "murojaah", "muraja'ah", "setoran", "quran"],
+      "answer": "**Program Tahfidz 30 Juz** kami dirancang intensif:\n\n• Bimbingan ustadz hafidz berpengalaman\n• Setoran hafalan setiap hari\n• Muraja'ah mingguan & bulanan\n• Target selesai 30 Juz dalam 3-4 tahun\n\nAda jalur Reguler (min. 5 Juz) dan Takhassus (30 Juz). Mau info lebih lanjut?",
+      "quick": "Bagaimana program Tahfidz 30 Juz?"
+    },
+    {
+      "id": "biaya",
+      "keywords": ["biaya", "harga", "bayar", "uang", "spp", "tarif", "paket", "promo", "beasiswa", "cicilan", "gratis"],
+      "answer": "Soal **biaya pendidikan**, ada beberapa skema:\n\n• Biaya pendaftaran & pendidikan terjangkau\n• Cicilan per semester\n• Beasiswa tahfidz & santri berprestasi\n• Keringanan untuk yatim & dhuafa\n\nAngka pastinya menyesuaikan jenjang & program. Langsung chat admin kami untuk detailnya ya 👇",
+      "quick": "Berapa biaya pendidikan di pesantren?"
+    },
+    {
+      "id": "fasilitas",
+      "keywords": ["fasilitas", "asrama", "masjid", "klinik", "lab", "laboratorium", "kamar", "makan", "gedung"],
+      "answer": "**Fasilitas Al-Musthafawiyah:**\n\n🕌 Masjid kapasitas 2000 jamaah\n🛏️ Asrama nyaman & aman (putra-putri)\n🔬 Lab IPA, Komputer & Bahasa\n🏥 Klinik kesehatan 24 jam\n⚽ Area olahraga & ekstrakurikuler\n\nInfo lebih lengkap ada di halaman [Pendidikan](/pendidikan).",
+      "quick": "Apa saja fasilitas pesantren?"
+    },
+    {
+      "id": "jenjang",
+      "keywords": ["mts", "ma", "madrasah", "smpit", "smait", "smkit", "smk", "tsanawiyah", "aliyah", "sekolah"],
+      "answer": "**Lembaga pendidikan formal kami:**\n\n🏫 MTs (Madrasah Tsanawiyah)\n🎓 MA (Madrasah Aliyah)\n💻 SMPIT & SMAIT (Islam Terpadu)\n⚙️ SMKIT (SMK Islam Terpadu)\n\nSemuanya terintegrasi dengan program kepesantrenan. Detail di halaman [Pendidikan](/pendidikan).",
+      "quick": "Apa saja jenjang pendidikan di pesantren?"
+    },
+    {
+      "id": "lokasi",
+      "keywords": ["alamat", "lokasi", "dimana", "di mana", "kampus", "asrama", "kebumen", "jawa tengah", "kontak", "jam"],
+      "answer": "**Pondok Pesantren Al-Musthafawiyah** berlokasi di:\n📍 Jl. Raya Pesantren No. 1, Desa Karanganyar, Kec. Kebumen, Kab. Kebumen, Jawa Tengah 54317\n\n📞 0812-3456-7890\n✉️ info@almusthafawiyah.sch.id\n\nDetail & peta ada di halaman [Kontak](/kontak).",
+      "quick": "Di mana lokasi pesantren?"
+    },
+    {
+      "id": "salam",
+      "keywords": ["halo", "hai", "hi", "hello", "assalamualaikum", "assalamu'alaikum", "salam", "pagi", "siang", "sore", "malam", "test", "tes"],
+      "answer": "Wa'alaikumussalam! 👋 Senang bertemu denganmu. Ada yang bisa saya bantu seputar Al-Musthafawiyah — PPDB, program, tahfidz, atau fasilitas?",
+      "quick": "Saya ingin mendaftar PPDB Al-Musthafawiyah"
+    },
+    {
+      "id": "terima-kasih",
+      "keywords": ["terima kasih", "makasih", "thanks", "thx", "oke", "ok", "sip", "mantap", "bagus", "jazakallah", "jazakumullah"],
+      "answer": "Sama-sama! 😊 Jazakallahu khairan. Kalau ada lagi yang mau ditanyakan, tinggal chat. Sampai jumpa di Al-Musthafawiyah! 🕌",
+      "quick": "Cara daftar PPDB"
+    }
+  ]
+}

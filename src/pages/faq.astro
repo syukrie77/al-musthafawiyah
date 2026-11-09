@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQSection from '../components/FAQSection.astro';
+---
+
+<Layout
+  title="FAQ"
+  description="Pertanyaan yang sering diajukan tentang Pondok Pesantren Al-Musthafawiyah — PPDB, program unggulan, tahfidz, dan fasilitas."
+  breadcrumbs={[{ name: 'Beranda', url: '/' }, { name: 'FAQ', url: '/faq' }]}
+>
+  <section class="bg-gradient-to-br from-brand-800 to-brand-600 text-white py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold">FAQ</h1>
+      <p class="mt-4 text-lg text-brand-100 max-w-2xl mx-auto">Temukan jawaban atas pertanyaan yang paling sering diajukan seputar Al-Musthafawiyah.</p>
+    </div>
+  </section>
+
+  <FAQSection />
+</Layout>

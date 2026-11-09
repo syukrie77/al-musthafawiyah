@@ -1,0 +1,87 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1f13"/>
+      <stop offset="55%" stop-color="#1a6b3c"/>
+      <stop offset="100%" stop-color="#2d8a54"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="15%" cy="20%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="85%" cy="85%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff" opacity="0.10"/>
+    </pattern>
+    <filter id="soft" x="0" y="0">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#c9a84c" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Decorative Islamic arch pattern -->
+  <g stroke="#c9a84c" stroke-opacity="0.18" stroke-width="2" fill="none">
+    <path d="M 100 560 A 500 500 0 0 1 1100 560"/>
+    <path d="M 180 560 A 420 420 0 0 1 1020 560"/>
+    <path d="M 260 560 A 340 340 0 0 1 940 560"/>
+  </g>
+
+  <circle cx="1020" cy="520" r="180" fill="#c9a84c" opacity="0.22" filter="url(#soft)"/>
+  <circle cx="180" cy="520" r="140" fill="#7cbd95" opacity="0.22" filter="url(#soft)"/>
+
+  <!-- Logo badge (crescent + mosque) -->
+  <g transform="translate(80, 90)">
+    <rect x="0" y="0" width="110" height="110" rx="28" fill="#ffffff" fill-opacity="0.14" stroke="#c9a84c" stroke-opacity="0.4" stroke-width="2"/>
+    <text x="55" y="72" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800" fill="#c9a84c" text-anchor="middle">🕌</text>
+  </g>
+
+  <!-- Eyebrow (bismillah) -->
+  <text x="215" y="140" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#e8d48b" letter-spacing="2">
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+  </text>
+
+  <!-- Title -->
+  <text x="80" y="300" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" fill="#ffffff">
+    Pondok Pesantren
+  </text>
+  <text x="80" y="388" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="800" fill="#c9a84c">
+    Al-Musthafawiyah
+  </text>
+
+  <!-- Divider -->
+  <rect x="80" y="420" width="560" height="3" fill="url(#line)"/>
+
+  <!-- Tagline -->
+  <text x="80" y="465" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600" fill="#d7ecdd">
+    Generasi Qur'ani yang Berilmu &amp; Berakhlak Mulia
+  </text>
+
+  <!-- Chips -->
+  <g transform="translate(80, 500)">
+    <rect x="0" y="0" width="180" height="52" rx="26" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5"/>
+    <text x="90" y="34" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#ffffff" text-anchor="middle">📖 Tahfidz 30 Juz</text>
+
+    <rect x="196" y="0" width="176" height="52" rx="26" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5"/>
+    <text x="284" y="34" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#ffffff" text-anchor="middle">📚 Kitab Kuning</text>
+
+    <rect x="388" y="0" width="172" height="52" rx="26" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5"/>
+    <text x="474" y="34" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#ffffff" text-anchor="middle">🌐 Bahasa</text>
+  </g>
+
+  <!-- Site URL -->
+  <text x="1120" y="580" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600" fill="#ffffff" fill-opacity="0.8" text-anchor="end">
+    almusthafawiyah.sch.id
+  </text>
+</svg>

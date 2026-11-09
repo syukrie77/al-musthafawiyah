@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+import SectionTitle from '../components/SectionTitle.astro';
+
+const kontak = [
+  { icon: '📍', title: 'Alamat', value: site.address },
+  { icon: '📞', title: 'Telepon / WhatsApp', value: site.phone + ' (Admin PPDB)' },
+  { icon: '✉️', title: 'Email', value: site.email },
+  { icon: '🌐', title: 'Website', value: 'www.almusthafawiyah.sch.id' },
+];
+---
+
+<Layout
+  title="Kontak"
+  description="Hubungi Pondok Pesantren Al-Musthafawiyah — alamat, telepon, WhatsApp, email, dan lokasi pesantren di Kebumen, Jawa Tengah."
+  breadcrumbs={[{ name: 'Beranda', url: '/' }, { name: 'Kontak', url: '/kontak' }]}
+>
+  <section class="bg-gradient-to-br from-brand-800 to-brand-600 text-white py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold">Kontak & Lokasi</h1>
+      <p class="mt-4 text-lg text-brand-100 max-w-2xl mx-auto">Kami siap membantu menjawab pertanyaan Anda seputar pesantren, PPDB, dan program unggulan.</p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div class="space-y-5">
+          {kontak.map((k) => (
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center text-xl text-brand-600 shrink-0">{k.icon}</div>
+              <div>
+                <h3 class="font-serif font-bold text-brand-800">{k.title}</h3>
+                <p class="text-gray-600 text-sm mt-0.5">{k.value}</p>
+              </div>
+            </div>
+          ))}
+          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1faa52] text-white px-6 py-3 rounded-full font-semibold text-sm transition">
+            💬 Chat WhatsApp Admin
+          </a>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg min-h-[350px] bg-gray-100">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.63398777498!2d109.6214!3d-7.6801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ac36678666667%3A0x1234567890abcdef!2sKebumen%2C%20Kebumen%20Regency%2C%20Central%20Java!5e0!3m2!1sid!2sid!4v1234567890"
+            class="w-full h-full min-h-[350px] border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
